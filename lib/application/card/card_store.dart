@@ -4,10 +4,10 @@ import 'package:flutter_triple/flutter_triple.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../domain/card/card.dart';
-import '../../infrastructure/card/card_repository.dart';
+import '../../domain/card/i_card_repository.dart';
 
 class CardStore extends StreamStore<Void, KtList<Card>> {
-  final CardRepository cardRepository;
+  final ICardRepository cardRepository;
 
   CardStore({
     required this.cardRepository,
