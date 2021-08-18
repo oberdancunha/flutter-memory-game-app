@@ -1,3 +1,4 @@
+import 'package:flutter_memory_game_app/application/card/card_state.dart';
 import 'package:flutter_memory_game_app/application/card/card_store.dart';
 import 'package:flutter_memory_game_app/domain/card/card.dart';
 import 'package:flutter_memory_game_app/infrastructure/card/card_repository.dart';
@@ -17,7 +18,7 @@ void main() {
   setUpAll(() {
     mockCardRepository = MockCardRepository();
     initCardsMocked = mockKidsActivitiesInitGame();
-    setUpMockCardsRepository(mockCardRepository, initCardsMocked);
+    setUpMockCardRepository(mockCardRepository, initCardsMocked);
   });
 
   storeTest<CardStore>(
@@ -25,13 +26,19 @@ void main() {
     build: () => CardStore(cardRepository: mockCardRepository),
     act: (store) => store.initGame(),
     expect: () => [
-      const KtList.empty(),
+      const CardState(
+        cards: KtList.empty(),
+        cardRevealed: 0,
+      ),
       tripleLoading,
-      initCardsMocked,
+      CardState(
+        cards: initCardsMocked,
+        cardRevealed: 0,
+      ),
     ],
   );
 }
 
-void setUpMockCardsRepository(MockCardRepository mockCardRepository, KtList<Card> cardsMocked) {
+void setUpMockCardRepository(MockCardRepository mockCardRepository, KtList<Card> cardsMocked) {
   when(mockCardRepository.initGame).thenReturn(cardsMocked);
 }

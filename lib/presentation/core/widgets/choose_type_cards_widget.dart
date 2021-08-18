@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../application/card/card_store.dart';
 import '../../../data/card/kids_activities_data_source.dart';
 import '../../../infrastructure/card/card_data_source.dart';
 
@@ -14,7 +15,7 @@ class ChooseTypeCardsWidget extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           children: [
             _buildOptions(
-              title: 'Brincadeira de criança',
+              title: 'Brincadeiras de criança',
               image: 'assets/images/cards_types/kids_activities.png',
               cardDataSource: KidsActivitiesDataSouce(),
             ),
@@ -28,13 +29,16 @@ class ChooseTypeCardsWidget extends StatelessWidget {
     required CardDataSource cardDataSource,
   }) =>
       GestureDetector(
-        onTap: () => Modular.to.navigate(
-          '/game',
-          arguments: [
-            title,
-            cardDataSource,
-          ],
-        ),
+        onTap: () {
+          Modular.get<CardStore>().destroy();
+          Modular.to.pushReplacementNamed(
+            '/game',
+            arguments: [
+              title,
+              cardDataSource,
+            ],
+          );
+        },
         child: SizedBox(
           width: 110,
           child: Card(

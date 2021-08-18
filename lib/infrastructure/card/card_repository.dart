@@ -46,4 +46,21 @@ class CardRepository implements ICardRepository {
 
     return cardsToGame.toImmutableList();
   }
+
+  @override
+  KtList<Card> revealCard({
+    required KtList<Card> cards,
+    required int cardId,
+  }) =>
+      cards.asList().map(
+        (card) {
+          if (card.id == cardId) {
+            card = card.copyWith(
+              isMatched: true,
+            );
+          }
+
+          return card;
+        },
+      ).toImmutableList();
 }

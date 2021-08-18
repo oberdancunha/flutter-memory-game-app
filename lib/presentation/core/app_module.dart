@@ -10,7 +10,7 @@ class AppModule extends Module {
   @override
   final List<ModularRoute> routes = [
     ChildRoute(
-      '/',
+      Modular.initialRoute,
       child: (_, __) => const AppPage(),
       children: [
         ModuleRoute(

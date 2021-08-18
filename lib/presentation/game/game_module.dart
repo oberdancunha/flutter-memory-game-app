@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../application/card/card_store.dart';
@@ -5,7 +6,7 @@ import '../../data/card/kids_activities_data_source.dart';
 import '../../domain/card/i_card_repository.dart';
 import '../../infrastructure/card/card_data_source.dart';
 import '../../infrastructure/card/card_repository.dart';
-import 'game_page.dart';
+import 'widget/game_widget.dart';
 
 class GameModule extends Module {
   @override
@@ -25,8 +26,9 @@ class GameModule extends Module {
   final List<ModularRoute> routes = [
     ChildRoute(
       '/',
-      child: (_, i) => GamePage(
-        title: i.data[0].toString(),
+      child: (_, args) => GameWidget(
+        key: ObjectKey(DateTime.now().microsecondsSinceEpoch.toString()),
+        title: args.data[0].toString(),
         cardStore: Modular.get<CardStore>(),
       ),
     ),
