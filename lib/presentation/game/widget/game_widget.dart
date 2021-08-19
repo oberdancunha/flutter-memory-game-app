@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart' hide Card;
 import 'package:flutter_triple/flutter_triple.dart';
 import 'package:kt_dart/kt.dart';
@@ -7,6 +5,7 @@ import 'package:kt_dart/kt.dart';
 import '../../../application/card/card_state.dart';
 import '../../../application/card/card_store.dart';
 import '../../../domain/card/card.dart';
+import '../../../domain/core/failures.dart';
 import 'game_card_widget.dart';
 
 class GameWidget extends StatefulWidget {
@@ -43,7 +42,7 @@ class _GameWidgetState extends State<GameWidget> {
               color: Colors.brown.shade700,
             ),
           ),
-          ScopedBuilder<CardStore, Void, CardState>(
+          ScopedBuilder<CardStore, Failure, CardState>(
             store: widget.cardStore,
             onLoading: (_) => const CircularProgressIndicator(),
             onState: (_, state) => _buildCards(state.cards, widget.cardStore),

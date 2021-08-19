@@ -32,11 +32,13 @@ void main() {
       const CardState(
         cards: KtList.empty(),
         cardRevealed: 0,
+        lockRevealCard: false,
       ),
       tripleLoading,
       CardState(
         cards: initCardsMocked,
         cardRevealed: 0,
+        lockRevealCard: false,
       ),
     ],
   );

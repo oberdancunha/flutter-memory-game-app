@@ -10,10 +10,12 @@ abstract class CardState with _$CardState {
   const factory CardState({
     required KtList<Card> cards,
     required int cardRevealed,
+    bool? lockRevealCard,
   }) = _CardState;
 
   factory CardState.initial() => const CardState(
         cards: KtList.empty(),
         cardRevealed: 0,
+        lockRevealCard: false,
       );
 }
