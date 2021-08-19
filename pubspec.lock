@@ -256,6 +256,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.4+3"
+  fpdart:
+    dependency: "direct main"
+    description:
+      name: fpdart
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.10"
   freezed:
     dependency: "direct dev"
     description:

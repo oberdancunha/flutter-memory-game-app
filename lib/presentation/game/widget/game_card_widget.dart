@@ -35,13 +35,14 @@ class _GameCardWidgetState extends State<GameCardWidget> {
                   children: [
                     Image.asset(
                       widget.image,
-                      scale: 0.9,
+                      scale: 0.8,
                     ),
                     Text(
                       widget.name,
                       style: const TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
+                        fontSize: 13,
                       ),
                       textAlign: TextAlign.center,
                     ),
