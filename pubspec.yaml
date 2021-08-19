@@ -51,6 +51,9 @@ flutter:
     - assets/images/
     - assets/images/cards_types/
     - assets/images/kids_activities/
+    - assets/images/animals/
+    - assets/images/country_flags/
+    - assets/images/music_instruments/
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

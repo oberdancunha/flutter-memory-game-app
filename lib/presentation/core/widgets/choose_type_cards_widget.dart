@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../application/card/card_store.dart';
+import '../../../data/card/animals_data_source.dart';
+import '../../../data/card/country_flags_data_source.dart';
 import '../../../data/card/kids_activities_data_source.dart';
+import '../../../data/card/music_instruments_data_source.dart';
 import '../../../infrastructure/card/card_data_source.dart';
 
 class ChooseTypeCardsWidget extends StatelessWidget {
@@ -15,15 +18,35 @@ class ChooseTypeCardsWidget extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           children: [
             _buildOptions(
+              context: context,
               title: 'Brincadeiras de criança',
               image: 'assets/images/cards_types/kids_activities.png',
               cardDataSource: KidsActivitiesDataSouce(),
+            ),
+            _buildOptions(
+              context: context,
+              title: 'Animais',
+              image: 'assets/images/cards_types/animals.png',
+              cardDataSource: AnimalsDataSouce(),
+            ),
+            _buildOptions(
+              context: context,
+              title: 'Bandeiras de países',
+              image: 'assets/images/cards_types/country_flags.png',
+              cardDataSource: CountryFlagsDataSouce(),
+            ),
+            _buildOptions(
+              context: context,
+              title: 'Instrumentos musicais',
+              image: 'assets/images/cards_types/music_instruments.png',
+              cardDataSource: MusicInstrumentsDataSouce(),
             ),
           ],
         ),
       );
 
   Widget _buildOptions({
+    required BuildContext context,
     required String title,
     required String image,
     required CardDataSource cardDataSource,
@@ -40,7 +63,7 @@ class ChooseTypeCardsWidget extends StatelessWidget {
           );
         },
         child: SizedBox(
-          width: 110,
+          width: MediaQuery.of(context).size.width / 4,
           child: Card(
             color: Colors.brown,
             margin: const EdgeInsets.symmetric(horizontal: 5),
