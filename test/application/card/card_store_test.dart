@@ -25,6 +25,9 @@ void main() {
     'Should init game',
     build: () => CardStore(cardRepository: mockCardRepository),
     act: (store) => store.initGame(),
+    verify: (_) {
+      verify(() => mockCardRepository.initGame()).called(1);
+    },
     expect: () => [
       const CardState(
         cards: KtList.empty(),
