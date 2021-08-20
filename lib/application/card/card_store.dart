@@ -64,7 +64,7 @@ class CardStore extends StreamStore<Failure, CardState> {
     setLoading(false);
   }
 
-  void lockRevealCard() {
+  void lockCardReveal() {
     update(
       state.copyWith(
         lockRevealCard: true,
@@ -72,7 +72,7 @@ class CardStore extends StreamStore<Failure, CardState> {
     );
   }
 
-  void unLockRevealCard() {
+  void unlockCardReveal() {
     update(
       state.copyWith(
         lockRevealCard: false,
