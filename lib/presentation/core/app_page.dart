@@ -13,8 +13,9 @@ class AppPage extends StatelessWidget {
         body: Column(
           children: const [
             HeaderWidget(),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
             ChooseTypeCardsWidget(),
+            SizedBox(height: 10),
             GamePage(),
           ],
         ),

@@ -24,9 +24,7 @@ class _GamePageState extends State<GamePage> {
   }
 
   @override
-  Widget build(BuildContext context) => SizedBox(
-        height: MediaQuery.of(context).size.height / 2,
-        width: double.infinity,
+  Widget build(BuildContext context) => Expanded(
         child: RouterOutlet(),
       );
 }

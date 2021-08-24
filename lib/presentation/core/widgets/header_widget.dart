@@ -26,7 +26,7 @@ class HeaderWidget extends StatelessWidget {
               Text(
                 'Jogo da Memória',
                 style: TextStyle(
-                  fontSize: 65,
+                  fontSize: MediaQuery.of(context).size.width / 7,
                   fontFamily: 'K26ToyBlocks123',
                   fontWeight: FontWeight.bold,
                   color: Colors.brown.shade700,

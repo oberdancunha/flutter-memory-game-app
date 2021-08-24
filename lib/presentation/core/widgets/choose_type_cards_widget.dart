@@ -13,7 +13,7 @@ class ChooseTypeCardsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SizedBox(
-        height: 140,
+        height: MediaQuery.of(context).size.height / 6,
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: [
@@ -73,12 +73,15 @@ class ChooseTypeCardsWidget extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Image(image: AssetImage(image)),
+                Image(
+                  image: AssetImage(image),
+                  width: MediaQuery.of(context).size.width / 7,
+                ),
                 SizedBox(
                   child: Text(
                     title,
-                    style: const TextStyle(
-                      fontSize: 17,
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width / 27,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),

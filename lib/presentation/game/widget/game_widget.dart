@@ -30,42 +30,47 @@ class _GameWidgetState extends State<GameWidget> {
   }
 
   @override
-  Widget build(BuildContext context) => Column(
+  Column build(BuildContext context) => Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          const SizedBox(height: 5),
-          Text(
-            widget.title,
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-              color: Colors.brown.shade700,
+          SizedBox(
+            height: MediaQuery.of(context).size.height / 19,
+            child: Text(
+              widget.title,
+              style: TextStyle(
+                fontSize: MediaQuery.of(context).size.width / 15,
+                fontWeight: FontWeight.bold,
+                color: Colors.brown.shade700,
+              ),
             ),
           ),
-          ScopedBuilder<CardStore, Failure, CardState>(
-            store: widget.cardStore,
-            onLoading: (_) => const CircularProgressIndicator(),
-            onState: (_, state) => _buildCards(state.cards, widget.cardStore),
+          const SizedBox(height: 10),
+          Expanded(
+            child: ScopedBuilder<CardStore, Failure, CardState>(
+              store: widget.cardStore,
+              onLoading: (_) => const CircularProgressIndicator(),
+              onState: (_, state) => _buildCards(context, state.cards, widget.cardStore),
+            ),
           ),
         ],
       );
 
-  Widget _buildCards(KtList<Card> cards, CardStore cardStore) => Center(
-        child: GridView.count(
-          crossAxisCount: 5,
-          crossAxisSpacing: 4,
-          mainAxisSpacing: 4,
-          shrinkWrap: true,
-          padding: const EdgeInsets.symmetric(horizontal: 5),
-          children: List.generate(
-            cards.size,
-            (index) => GameCardWidget(
-              id: cards.elementAt(index).id,
-              name: cards.elementAt(index).name,
-              image: cards.elementAt(index).image,
-              isMatched: cards.elementAt(index).isMatched,
-              cardStore: cardStore,
-            ),
+  GridView _buildCards(BuildContext context, KtList<Card> cards, CardStore cardStore) =>
+      GridView.count(
+        crossAxisCount: 5,
+        crossAxisSpacing: 4,
+        mainAxisSpacing: 4,
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
+        padding: const EdgeInsets.symmetric(horizontal: 5),
+        children: List.generate(
+          cards.size,
+          (index) => GameCardWidget(
+            id: cards.elementAt(index).id,
+            name: cards.elementAt(index).name,
+            image: cards.elementAt(index).image,
+            isMatched: cards.elementAt(index).isMatched,
+            cardStore: cardStore,
           ),
         ),
       );

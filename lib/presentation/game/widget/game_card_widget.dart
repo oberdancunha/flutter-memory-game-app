@@ -34,7 +34,7 @@ class _GameCardWidgetState extends State<GameCardWidget> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  GestureDetector build(BuildContext context) {
     final shouldLetCardRevealed = widget.isMatched || _revealedCard;
     final revealCardCurrentPlay = widget.cardStore.state.cardRevealed == widget.id || _revealedCard;
 
@@ -61,7 +61,7 @@ class _GameCardWidgetState extends State<GameCardWidget> {
         switchOutCurve: Curves.easeInBack.flipped,
         child: Container(
           key: ValueKey(revealCardCurrentPlay),
-          width: MediaQuery.of(context).size.width / 6,
+          width: MediaQuery.of(context).size.width / 5,
           color: !shouldLetCardRevealed
               ? Colors.brown
               : revealCardCurrentPlay
@@ -74,13 +74,14 @@ class _GameCardWidgetState extends State<GameCardWidget> {
                     Image.asset(
                       widget.image,
                       scale: 0.8,
+                      width: MediaQuery.of(context).size.width / 12,
                     ),
                     Text(
                       widget.name,
-                      style: const TextStyle(
+                      style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
-                        fontSize: 13,
+                        fontSize: MediaQuery.of(context).size.width / 37,
                       ),
                       textAlign: TextAlign.center,
                     ),
