@@ -1,6 +1,8 @@
 import 'dart:math';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../application/card/card_store.dart';
 
@@ -67,23 +69,30 @@ class _GameCardWidgetState extends State<GameCardWidget> {
               : revealCardCurrentPlay
                   ? Colors.amber.shade900
                   : Colors.green.shade700,
-          child: shouldLetCardRevealed
+          child: !shouldLetCardRevealed
               ? Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Image.asset(
                       widget.image,
-                      scale: 0.8,
-                      width: MediaQuery.of(context).size.width / 12,
+                      scale: 0.7,
+                      width: ScreenUtil().setWidth(30),
                     ),
-                    Text(
-                      widget.name,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: MediaQuery.of(context).size.width / 37,
+                    Container(
+                      constraints: BoxConstraints(
+                        maxHeight: ScreenUtil().setHeight(35),
                       ),
-                      textAlign: TextAlign.center,
+                      child: AutoSizeText(
+                        widget.name,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: ScreenUtil().setSp(13),
+                        ),
+                        textAlign: TextAlign.center,
+                        minFontSize: 10,
+                        maxLines: 2,
+                      ),
                     ),
                   ],
                 )

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart' hide Card;
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 import 'package:kt_dart/kt.dart';
 
@@ -34,11 +35,11 @@ class _GameWidgetState extends State<GameWidget> {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           SizedBox(
-            height: MediaQuery.of(context).size.height / 19,
+            height: ScreenUtil().setHeight(35),
             child: Text(
               widget.title,
               style: TextStyle(
-                fontSize: MediaQuery.of(context).size.width / 15,
+                fontSize: ScreenUtil().setSp(25),
                 fontWeight: FontWeight.bold,
                 color: Colors.brown.shade700,
               ),
@@ -63,6 +64,7 @@ class _GameWidgetState extends State<GameWidget> {
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
         padding: const EdgeInsets.symmetric(horizontal: 5),
+        childAspectRatio: MediaQuery.of(context).size.width > 600 ? 1.2 : 1.0,
         children: List.generate(
           cards.size,
           (index) => GameCardWidget(

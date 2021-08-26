@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../application/card/card_store.dart';
 import '../../../data/card/animals_data_source.dart';
@@ -13,7 +14,7 @@ class ChooseTypeCardsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SizedBox(
-        height: MediaQuery.of(context).size.height / 6,
+        height: ScreenUtil().setHeight(120),
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: [
@@ -75,13 +76,13 @@ class ChooseTypeCardsWidget extends StatelessWidget {
               children: [
                 Image(
                   image: AssetImage(image),
-                  width: MediaQuery.of(context).size.width / 7,
+                  width: ScreenUtil().setWidth(50),
                 ),
                 SizedBox(
                   child: Text(
                     title,
                     style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.width / 27,
+                      fontSize: ScreenUtil().setSp(13),
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
                     ),

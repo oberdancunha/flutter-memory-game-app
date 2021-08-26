@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HeaderWidget extends StatelessWidget {
   const HeaderWidget({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => SizedBox(
-        height: MediaQuery.of(context).size.height / 4,
-        width: double.infinity,
-        child: Padding(
-          padding: const EdgeInsets.only(top: 30),
+  Widget build(BuildContext context) => SafeArea(
+        bottom: false,
+        child: SizedBox(
+          height: ScreenUtil().setHeight(120),
+          width: double.infinity,
           child: Stack(
             alignment: Alignment.center,
             children: [
@@ -26,7 +27,7 @@ class HeaderWidget extends StatelessWidget {
               Text(
                 'Jogo da Memória',
                 style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.width / 7,
+                  fontSize: ScreenUtil().setSp(50),
                   fontFamily: 'K26ToyBlocks123',
                   fontWeight: FontWeight.bold,
                   color: Colors.brown.shade700,
