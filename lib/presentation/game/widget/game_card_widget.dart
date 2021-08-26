@@ -69,7 +69,7 @@ class _GameCardWidgetState extends State<GameCardWidget> {
               : revealCardCurrentPlay
                   ? Colors.amber.shade900
                   : Colors.green.shade700,
-          child: !shouldLetCardRevealed
+          child: shouldLetCardRevealed
               ? Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
