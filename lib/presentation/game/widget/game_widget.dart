@@ -8,6 +8,7 @@ import '../../../application/card/card_store.dart';
 import '../../../domain/card/card.dart';
 import '../../../domain/core/failures.dart';
 import 'game_card_widget.dart';
+import 'game_finish_widget.dart';
 
 class GameWidget extends StatefulWidget {
   final String title;
@@ -50,7 +51,13 @@ class _GameWidgetState extends State<GameWidget> {
             child: ScopedBuilder<CardStore, Failure, CardState>(
               store: widget.cardStore,
               onLoading: (_) => const CircularProgressIndicator(),
-              onState: (_, state) => _buildCards(context, state.cards, widget.cardStore),
+              onState: (_, state) => Stack(
+                alignment: Alignment.topCenter,
+                children: [
+                  _buildCards(context, state.cards, widget.cardStore),
+                  if (_isGameFinish(state.cards)) const GameFinishWidget(),
+                ],
+              ),
             ),
           ),
         ],
@@ -76,4 +83,11 @@ class _GameWidgetState extends State<GameWidget> {
           ),
         ),
       );
+
+  bool _isGameFinish(KtList<Card> cards) {
+    final listCardsMatchedFalse = cards.asList().where((card) => !card.isMatched);
+    final isGameFinish = listCardsMatchedFalse.isEmpty;
+
+    return isGameFinish;
+  }
 }
