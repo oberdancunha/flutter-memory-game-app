@@ -1,9 +1,7 @@
 import 'package:flutter_memory_game_app/data/card/kids_activities_data_source.dart';
 import 'package:flutter_memory_game_app/domain/card/card.dart';
-import 'package:flutter_memory_game_app/domain/core/failures.dart';
 import 'package:flutter_memory_game_app/infrastructure/card/card_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:fpdart/fpdart.dart';
 import 'package:kt_dart/kt.dart';
 
 import '../../mock_data/kids_activities_data_id_3_reveal_mocked.dart';
@@ -140,7 +138,7 @@ void main() {
             firstCardId: firstCardId,
             secondCardId: secondCardId,
           );
-          expect(cards, right(cardsIds3and7MatchedMocked));
+          expect(cards, cardsIds3and7MatchedMocked);
         },
       );
 
@@ -153,7 +151,7 @@ void main() {
             firstCardId: firstCardId,
             secondCardId: secondCardId,
           );
-          expect(cards, left<Failure, KtList<Card>>(Failure.cardsNotMatched(initCardsMocked)));
+          expect(cards, initCardsMocked);
         },
       );
     },

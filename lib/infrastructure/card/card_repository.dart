@@ -1,12 +1,9 @@
 import 'dart:math';
 
-import 'package:fpdart/fpdart.dart';
-import 'package:fpdart/src/either.dart';
 import 'package:kt_dart/kt.dart';
 
 import '../../domain/card/card.dart';
 import '../../domain/card/i_card_repository.dart';
-import '../../domain/core/failures.dart';
 import 'card_data_source.dart';
 
 class CardRepository implements ICardRepository {
@@ -85,22 +82,17 @@ class CardRepository implements ICardRepository {
       ).toImmutableList();
 
   @override
-  Either<Failure, KtList<Card>> compareCardsRevealed({
+  KtList<Card> compareCardsRevealed({
     required KtList<Card> cards,
     required int firstCardId,
     required int secondCardId,
   }) {
     final firstCardName = cards.asList().where((card) => card.id == firstCardId).first.name;
     final secondCardName = cards.asList().where((card) => card.id == secondCardId).first.name;
-    late KtList<Card> cardsCompared;
-    if (firstCardName == secondCardName) {
-      cardsCompared = revealCard(cards: cards, cardId: secondCardId);
+    final cardsCompared = firstCardName == secondCardName
+        ? revealCard(cards: cards, cardId: secondCardId)
+        : hideCard(cards: cards, cardId: firstCardId);
 
-      return right(cardsCompared);
-    } else {
-      cardsCompared = hideCard(cards: cards, cardId: firstCardId);
-
-      return left(Failure.cardsNotMatched(cardsCompared));
-    }
+    return cardsCompared;
   }
 }

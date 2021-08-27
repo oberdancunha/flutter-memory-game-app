@@ -1,10 +1,11 @@
+import 'dart:ffi';
+
 import 'package:flutter_triple/flutter_triple.dart';
 
 import '../../domain/card/i_card_repository.dart';
-import '../../domain/core/failures.dart';
 import 'card_state.dart';
 
-class CardStore extends StreamStore<Failure, CardState> {
+class CardStore extends StreamStore<Void, CardState> {
   final ICardRepository cardRepository;
 
   CardStore({
@@ -37,29 +38,16 @@ class CardStore extends StreamStore<Failure, CardState> {
 
   void compareCardsRevealed(int cardId) {
     setLoading(true);
-    cardRepository
-        .compareCardsRevealed(
+    final cards = cardRepository.compareCardsRevealed(
       cards: state.cards,
       firstCardId: state.cardRevealed,
       secondCardId: cardId,
-    )
-        .fold(
-      (failure) {
-        failure.map(
-          cardsNotMatched: (cardsNotMatched) => update(
-            state.copyWith(
-              cards: cardsNotMatched.cards,
-            ),
-          ),
-        );
-        setError(failure);
-      },
-      (cards) => update(
-        state.copyWith(cards: cards),
-      ),
     );
     update(
-      state.copyWith(cardRevealed: 0),
+      state.copyWith(
+        cards: cards,
+        cardRevealed: 0,
+      ),
     );
     setLoading(false);
   }

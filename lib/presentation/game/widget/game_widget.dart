@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart' hide Card;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_triple/flutter_triple.dart';
@@ -6,7 +8,6 @@ import 'package:kt_dart/kt.dart';
 import '../../../application/card/card_state.dart';
 import '../../../application/card/card_store.dart';
 import '../../../domain/card/card.dart';
-import '../../../domain/core/failures.dart';
 import 'game_card_widget.dart';
 import 'game_finish_widget.dart';
 
@@ -48,7 +49,7 @@ class _GameWidgetState extends State<GameWidget> {
           ),
           const SizedBox(height: 10),
           Expanded(
-            child: ScopedBuilder<CardStore, Failure, CardState>(
+            child: ScopedBuilder<CardStore, Void, CardState>(
               store: widget.cardStore,
               onLoading: (_) => const CircularProgressIndicator(),
               onState: (_, state) => Stack(
