@@ -25,13 +25,7 @@ void main() {
     cardIdToReveal = 3;
     initCardsMocked = mockKidsActivitiesInitGame();
     cardsId3RevealMocked = mockKidsActivitiesId3Reveal();
-    cardStore.update(
-      CardState(
-        cards: initCardsMocked,
-        cardRevealed: 0,
-        lockRevealCard: false,
-      ),
-    );
+    setUpInitialState(cardStore, initCardsMocked);
     setUpMockRevealCardRepository(
       mockCardRepository,
       initCardsMocked,
@@ -65,6 +59,19 @@ void main() {
         lockRevealCard: false,
       ),
     ],
+  );
+}
+
+void setUpInitialState(
+  CardStore cardStore,
+  KtList<Card> initCardsMocked,
+) {
+  cardStore.update(
+    CardState(
+      cards: initCardsMocked,
+      cardRevealed: 0,
+      lockRevealCard: false,
+    ),
   );
 }
 
