@@ -6,7 +6,7 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => MaterialApp(
-        title: 'Memory game',
+        title: 'Jogo da memória',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           fontFamily: 'Baloo2',
