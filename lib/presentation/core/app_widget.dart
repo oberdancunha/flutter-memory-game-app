@@ -12,14 +12,5 @@ class AppWidget extends StatelessWidget {
           fontFamily: 'Baloo2',
         ),
         initialRoute: '/',
-        // builder: (context, child) => MediaQuery(
-        //   data: MediaQuery.of(context).copyWith(
-        //     size: Size(
-        //       MediaQuery.of(context).size.width,
-        //       840,
-        //     ),
-        //   ),
-        //   child: child!,
-        // ),
       ).modular();
 }
