@@ -78,9 +78,6 @@ flutter:
         - asset: assets/fonts/Baloo2-Medium.ttf
         - asset: assets/fonts/Baloo2-SemiBold.ttf
           weight: 500
-    - family: K26ToyBlocks123
-      fonts:
-        - asset: assets/fonts/K26ToyBlocks123.ttf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
