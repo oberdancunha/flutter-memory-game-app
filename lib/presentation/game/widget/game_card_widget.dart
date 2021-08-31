@@ -38,11 +38,15 @@ class _GameCardWidgetState extends State<GameCardWidget> {
   @override
   GestureDetector build(BuildContext context) {
     final shouldLetCardRevealed = widget.isMatched || _revealedCard;
-    final revealCardCurrentPlay = widget.cardStore.state.cardRevealed == widget.id || _revealedCard;
+    final letsRevealCardInCurrentPlay =
+        widget.cardStore.state.cardRevealed == widget.id || _revealedCard;
+    final isSameCardTappedMoreThanOnce = widget.id == widget.cardStore.state.cardRevealed;
 
     return GestureDetector(
       onTap: () {
-        if (!widget.cardStore.state.lockRevealCard! && !widget.isMatched) {
+        if (!widget.cardStore.state.lockRevealCard! &&
+            !widget.isMatched &&
+            !isSameCardTappedMoreThanOnce) {
           if (widget.cardStore.state.cardRevealed > 0) {
             _revealCard();
             _waitToCardsCompare();
@@ -57,16 +61,16 @@ class _GameCardWidgetState extends State<GameCardWidget> {
         transitionBuilder: (widget, animation) => _revealedCardTransition(
           widget,
           animation,
-          revealCardCurrentPlay,
+          letsRevealCardInCurrentPlay,
         ),
         switchInCurve: Curves.easeInBack,
         switchOutCurve: Curves.easeInBack.flipped,
         child: Container(
-          key: ValueKey(revealCardCurrentPlay),
+          key: ValueKey(letsRevealCardInCurrentPlay),
           width: MediaQuery.of(context).size.width / 5,
           color: !shouldLetCardRevealed
               ? Colors.brown
-              : revealCardCurrentPlay
+              : letsRevealCardInCurrentPlay
                   ? Colors.amber.shade900
                   : Colors.green.shade700,
           child: shouldLetCardRevealed
@@ -128,7 +132,7 @@ class _GameCardWidgetState extends State<GameCardWidget> {
   AnimatedBuilder _revealedCardTransition(
     Widget widget,
     Animation<double> animation,
-    bool revealCardCurrentPlay,
+    bool letsRevealCardInCurrentPlay,
   ) {
     final animationRotate = Tween<double>(
       begin: pi,
@@ -138,12 +142,12 @@ class _GameCardWidgetState extends State<GameCardWidget> {
     return AnimatedBuilder(
       animation: animation,
       builder: (_, __) {
-        final isUnder = ValueKey(revealCardCurrentPlay) == widget.key;
+        final isUnder = ValueKey(letsRevealCardInCurrentPlay) == widget.key;
         final tilt = _calculateTilt(animation.value, isUnder);
         final radians = isUnder ? min(animationRotate.value, pi / 2) : animationRotate.value;
 
         return Transform(
-          transform: revealCardCurrentPlay
+          transform: letsRevealCardInCurrentPlay
               ? _revealCardRotate(radians, tilt)
               : _hideOrMatchCardRotate(radians, tilt),
           alignment: Alignment.center,
