@@ -12,7 +12,7 @@ class GameModule extends Module {
   @override
   final List<Bind> binds = [
     Bind.factory<CardDataSource>(
-      (i) => i.args!.data != null ? i.args!.data[1] as CardDataSource : KidsActivitiesDataSouce(),
+      (i) => i.args!.data != null ? i.args!.data[1] as CardDataSource : KidsActivitiesDataSource(),
     ),
     Bind.factory<ICardRepository>(
       (i) => CardRepository(cardDataSource: i.get<CardDataSource>()),

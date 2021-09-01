@@ -9,11 +9,11 @@ import '../../mock_data/kids_activities_data_ids_3_7_matched.dart';
 import '../../mock_data/kids_activities_data_mocked.dart';
 
 void main() {
-  late KidsActivitiesDataSouce kidsActivitiesDataSouce;
+  late KidsActivitiesDataSource kidsActivitiesDataSouce;
   late CardRepository cardRepository;
 
   setUpAll(() {
-    kidsActivitiesDataSouce = KidsActivitiesDataSouce();
+    kidsActivitiesDataSouce = KidsActivitiesDataSource();
     cardRepository = CardRepository(cardDataSource: kidsActivitiesDataSouce);
   });
 

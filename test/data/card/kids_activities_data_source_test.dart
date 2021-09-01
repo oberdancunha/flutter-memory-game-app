@@ -2,10 +2,10 @@ import 'package:flutter_memory_game_app/data/card/kids_activities_data_source.da
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  late KidsActivitiesDataSouce kidsActivitiesDataSouce;
+  late KidsActivitiesDataSource kidsActivitiesDataSouce;
 
   setUpAll(() {
-    kidsActivitiesDataSouce = KidsActivitiesDataSouce();
+    kidsActivitiesDataSouce = KidsActivitiesDataSource();
   });
 
   test(

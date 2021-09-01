@@ -1,7 +1,7 @@
 import '../../infrastructure/card/card_data_source.dart';
 import '../../infrastructure/card/card_dto.dart';
 
-class CountryFlagsDataSouce implements CardDataSource {
+class CountryFlagsDataSource implements CardDataSource {
   @override
   // ignore: long-method
   List<CardDto> create() {

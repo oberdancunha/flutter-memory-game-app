@@ -1,7 +1,7 @@
 import '../../infrastructure/card/card_data_source.dart';
 import '../../infrastructure/card/card_dto.dart';
 
-class MusicInstrumentsDataSouce implements CardDataSource {
+class MusicInstrumentsDataSource implements CardDataSource {
   @override
   // ignore: long-method
   List<CardDto> create() {

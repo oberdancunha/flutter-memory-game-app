@@ -18,7 +18,7 @@ class _GamePageState extends State<GamePage> {
       '/game',
       arguments: [
         'Brincadeiras de criança',
-        KidsActivitiesDataSouce(),
+        KidsActivitiesDataSource(),
       ],
     );
   }
