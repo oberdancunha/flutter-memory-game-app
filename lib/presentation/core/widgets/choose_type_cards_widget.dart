@@ -3,50 +3,36 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../application/card/card_store.dart';
-import '../../../data/card/animals_data_source.dart';
-import '../../../data/card/country_flags_data_source.dart';
-import '../../../data/card/kids_activities_data_source.dart';
-import '../../../data/card/music_instruments_data_source.dart';
 import '../../../infrastructure/card/card_data_source.dart';
+import '../misc/card_type_menu.dart';
 
 class ChooseTypeCardsWidget extends StatelessWidget {
   const ChooseTypeCardsWidget({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) => SizedBox(
-        height: ScreenUtil().setHeight(120),
-        child: ListView(
-          scrollDirection: Axis.horizontal,
-          children: [
-            _buildOptions(
-              context: context,
-              title: 'Brincadeiras de criança',
-              image: 'assets/images/cards_types/kids_activities.png',
-              cardDataSource: KidsActivitiesDataSource(),
-            ),
-            _buildOptions(
-              context: context,
-              title: 'Animais',
-              image: 'assets/images/cards_types/animals.png',
-              cardDataSource: AnimalsDataSource(),
-            ),
-            _buildOptions(
-              context: context,
-              title: 'Bandeiras de países',
-              image: 'assets/images/cards_types/country_flags.png',
-              cardDataSource: CountryFlagsDataSource(),
-            ),
-            _buildOptions(
-              context: context,
-              title: 'Instrumentos musicais',
-              image: 'assets/images/cards_types/music_instruments.png',
-              cardDataSource: MusicInstrumentsDataSource(),
-            ),
-          ],
-        ),
-      );
+  Widget build(BuildContext context) {
+    final cardTypeMenuItems = const CardTypeMenu().list();
 
-  Widget _buildOptions({
+    return SizedBox(
+      height: ScreenUtil().setHeight(120),
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: cardTypeMenuItems.size,
+        itemBuilder: (_, index) {
+          final cardTypeMenuItem = cardTypeMenuItems.get(index);
+
+          return _buildMenuItems(
+            context: context,
+            title: cardTypeMenuItem.name,
+            image: cardTypeMenuItem.image,
+            cardDataSource: cardTypeMenuItem.cardDataSource,
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildMenuItems({
     required BuildContext context,
     required String title,
     required String image,
