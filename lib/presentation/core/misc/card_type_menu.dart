@@ -3,7 +3,7 @@ import 'package:kt_dart/collection.dart';
 import '../../../data/card/animals_data_source.dart';
 import '../../../data/card/country_flags_data_source.dart';
 import '../../../data/card/kids_activities_data_source.dart';
-import '../../../data/card/music_instruments_data_source.dart';
+import '../../../data/card/musical_instruments_data_source.dart';
 import '../../../infrastructure/card/card_data_source.dart';
 
 class CardTypeMenuItem {
@@ -43,7 +43,7 @@ class CardTypeMenu {
       CardTypeMenuItem(
         name: 'Instrumentos musicais',
         image: '$imagePath/music_instruments.png',
-        cardDataSource: MusicInstrumentsDataSource(),
+        cardDataSource: MusicalInstrumentsDataSource(),
       ),
     );
   }
