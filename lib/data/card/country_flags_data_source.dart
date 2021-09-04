@@ -19,7 +19,7 @@ class CountryFlagsDataSource implements CardDataSource {
         selectedToGame: 0,
       ),
       CardDto(
-        name: 'France',
+        name: 'França',
         image: '$imageBasePath/france.png',
         selectedToGame: 0,
       ),
