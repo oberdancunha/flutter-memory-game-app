@@ -113,7 +113,7 @@ Finalizando o jogo no android J5.
 
 ## O desenvolvimento
 
-O jogo em si é bem simples. No entanto, o principal ponto desse projeto é como a sua arquitetura foi concebida, pensando, sobretudo, na escalabilidade.
+O jogo em si é bem simples. No entanto, o principal ponto desse projeto é como a sua arquitetura foi projetada, pensando, sobretudo, na escalabilidade.
 
 ### Arquitetura
 
@@ -134,7 +134,7 @@ Primeiramente, é quase impossível iniciar essa discussão sem mencionar os pri
 
 Obviamente, como não é uma aplicação complexa, princípios como a <b> segregação de interface (Interface Segregation Principle, o I do SOLID) </b> foi aplicada pela própria natureza do projeto. 
 
-#### Principio da inversão de dependência (Dependency Inversion Principle - DIP)
+#### Princípio da inversão de dependência (Dependency Inversion Principle - DIP)
 
 No entanto, o enfoque será em como o princípio da inversão de dependência possibilitou a escalabilidade desse projeto.
 
