@@ -41,6 +41,7 @@ Troca dos tipos de cartas no emulador iPhone 12 max.
 
 <img
   src="images/change_card_type_iphone_12_pro_max.gif"
+  height="520"
   border= "1px solid black"
 />
 
@@ -48,6 +49,8 @@ Iniciando o jogo no emulador iPad geração 8.
 
 <img
   src="images/first_steps_ipad_8_gen.gif"
+  width="350"
+  height="550"
   border= "1px solid black"
 />
 
@@ -55,6 +58,8 @@ Finalizando o jogo no emulador iPad geração 8.
 
 <img
   src="images/finish_game_ipad_8_gen.gif"
+  width="350"
+  height="550"
   border= "1px solid black"
 />
 
@@ -62,6 +67,7 @@ Iniciando o jogo no iPhone 5.
 
 <img
   src="images/first_steps_iphone_5.gif"
+  height="520"
   border= "1px solid black"
 />
 
@@ -69,6 +75,7 @@ Finalizando o jogo no iPhone 5.
 
 <img
   src="images/finish_game_iphone_5.gif"
+  height="520"
   border= "1px solid black"
 />
 
@@ -76,6 +83,7 @@ Iniciando o jogo no iPhone 8.
 
 <img
   src="images/first_steps_iphone_8.gif"
+  height="520"
   border= "1px solid black"
 />
 
@@ -83,6 +91,7 @@ Finalizando o jogo no iPhone 8.
 
 <img
   src="images/finish_game_iphone_8.gif"
+  height="520"
   border= "1px solid black"
 />
 
@@ -90,6 +99,7 @@ Iniciando o jogo no android J5.
 
 <img
   src="images/first_steps_samsung_j5.gif"
+  height="520"
   border= "1px solid black"
 />
 
@@ -97,6 +107,7 @@ Finalizando o jogo no android J5.
 
 <img
   src="images/finish_game_android_j5.gif"
+  height="520"
   border= "1px solid black"
 />
 
