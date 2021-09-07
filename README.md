@@ -45,71 +45,67 @@ Troca dos tipos de cartas no emulador iPhone 12 max.
   border= "1px solid black"
 />
 
-Iniciando o jogo no emulador iPad geração 8.
+Iniciando e finalizando o jogo no emulador iPad geração 8.
 
-<img
-  src="images/first_steps_ipad_8_gen.gif"
-  width="350"
-  height="550"
-  border= "1px solid black"
-/>
+<p float="left">
+  <img
+    src="images/first_steps_ipad_8_gen.gif"
+    width="350"
+    height="550"
+    border= "1px solid black"
+  />
+  <img
+    src="images/finish_game_ipad_8_gen.gif"
+    width="350"
+    height="550"
+    border= "1px solid black"
+  />
+</p>
 
-Finalizando o jogo no emulador iPad geração 8.
+Iniciando e finalizando o jogo no iPhone 5.
 
-<img
-  src="images/finish_game_ipad_8_gen.gif"
-  width="350"
-  height="550"
-  border= "1px solid black"
-/>
+<p float="left">
+  <img
+    src="images/first_steps_iphone_5.gif"
+    height="520"
+    border= "1px solid black"
+  />
+  <img
+    src="images/finish_game_iphone_5.gif"
+    height="520"
+    border= "1px solid black"
+  />
+</p>
 
-Iniciando o jogo no iPhone 5.
+Iniciando e finalzando o jogo no iPhone 8.
 
-<img
-  src="images/first_steps_iphone_5.gif"
-  height="520"
-  border= "1px solid black"
-/>
+<p float="left">
+  <img
+    src="images/first_steps_iphone_8.gif"
+    height="520"
+    border= "1px solid black"
+  />
+  <img
+    src="images/finish_game_iphone_8.gif"
+    height="520"
+    border= "1px solid black"
+  />
+</p>
 
-Finalizando o jogo no iPhone 5.
+Iniciando e finalizando o jogo no android J5.
 
-<img
-  src="images/finish_game_iphone_5.gif"
-  height="520"
-  border= "1px solid black"
-/>
-
-Iniciando o jogo no iPhone 8.
-
-<img
-  src="images/first_steps_iphone_8.gif"
-  height="520"
-  border= "1px solid black"
-/>
-
-Finalizando o jogo no iPhone 8.
-
-<img
-  src="images/finish_game_iphone_8.gif"
-  height="520"
-  border= "1px solid black"
-/>
-
-Iniciando o jogo no android J5.
-
+<p float="left">
 <img
   src="images/first_steps_samsung_j5.gif"
   height="520"
   border= "1px solid black"
 />
-
-Finalizando o jogo no android J5.
-
 <img
   src="images/finish_game_android_j5.gif"
   height="520"
   border= "1px solid black"
 />
+</p>
 
 ## O desenvolvimento
 
