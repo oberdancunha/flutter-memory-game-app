@@ -77,7 +77,7 @@ Iniciando e finalizando o jogo no iPhone 5.
   />
 </p>
 
-Iniciando e finalzando o jogo no iPhone 8.
+Iniciando e finalizando o jogo no iPhone 8.
 
 <p float="left">
   <img
